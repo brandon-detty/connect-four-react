@@ -1,13 +1,15 @@
 import { ReactNode } from "react";
-import Square from "./Square";
+import Square, { SquareState } from "./Square";
 
-const emptyCol = new Array<number>(6).fill(0);
+const emptyCol = new Array<number>(6).fill(SquareState.Red);
 const cols = new Array<Array<number>>(7).fill([...emptyCol]);
 
 const Board = () => {
   const squareElements = cols.reduce((squares, col, colIndex) => {
-    col.forEach((square, rowIndex) => {
-      squares.push(<Square key={`${rowIndex}${colIndex}`} />);
+    col.forEach((squareState, rowIndex) => {
+      squares.push(
+        <Square key={`${rowIndex}${colIndex}`} state={squareState} />
+      );
     });
     return squares;
   }, new Array<ReactNode>());
