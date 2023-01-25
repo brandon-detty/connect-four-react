@@ -1,7 +1,7 @@
 export enum SquareState {
-  Empty,
-  Red,
-  Black,
+  Empty = "O",
+  Red = "r",
+  Black = "b",
 }
 
 interface SquareProps {
@@ -9,14 +9,14 @@ interface SquareProps {
 }
 
 const bgClassMap: Record<SquareState, string> = {
-  [SquareState.Empty]: "",
+  [SquareState.Empty]: "bg-white",
   [SquareState.Red]: "bg-red-500",
   [SquareState.Black]: "bg-black",
 };
 
 const Square = ({ state }: SquareProps) => {
   return (
-    <span className="w-28 h-28 border-solid border-2 border-grey-500 flex items-center justify-center">
+    <span className="w-28 h-28 border-solid border-2 border-yellow-400 flex items-center justify-center bg-yellow-300">
       <div className={`w-24 h-24 rounded-full ${bgClassMap[state]}`} />
     </span>
   );

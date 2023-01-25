@@ -1,10 +1,11 @@
 import { ReactNode } from "react";
-import Square, { SquareState } from "./Square";
 
-const emptyCol = new Array<number>(6).fill(SquareState.Red);
-const cols = new Array<Array<number>>(7).fill([...emptyCol]);
+import newGameState from "../gameLogic/newGameState";
+
+import Square from "./Square";
 
 const Board = () => {
+  const cols = newGameState();
   const squareElements = cols.reduce((squares, col, colIndex) => {
     col.forEach((squareState, rowIndex) => {
       squares.push(
