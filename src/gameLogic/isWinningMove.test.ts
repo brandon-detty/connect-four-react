@@ -4,6 +4,12 @@ import newGameState from "./newGameState";
 import isWinningMove from "./isWinningMove";
 import { SquareState } from "../components/Square";
 
+it("should return false for invalid moves", () => {
+  const s = newGameState();
+  expect(isWinningMove(SquareState.Red, -1, s)).toBe(false);
+  expect(isWinningMove(SquareState.Red, s.length, s)).toBe(false);
+});
+
 it("should recognize a horizontal win in row 0", () => {
   const s = newGameState();
   for (let c = 1; c < 4; ++c) {
