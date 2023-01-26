@@ -15,7 +15,11 @@ const Board = () => {
     return squares;
   }, new Array<ReactNode>());
 
-  return <div className="w-196 flex flex-wrap-reverse">{squareElements}</div>;
+  return (
+    <div className="w-196 h-168 flex flex-wrap flex-col-reverse">
+      {squareElements}
+    </div>
+  );
 };
 
 export default Board;
