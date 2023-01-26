@@ -1,3 +1,4 @@
+import { SquareState } from "../components/Square";
 import canAddToColumn from "./canAddToColumn";
 import { GameState } from "./newGameState";
 
@@ -9,14 +10,17 @@ const vectors = [
   [1, -1],
 ];
 
-const isWinningMove = (moveCol: number, s: GameState): boolean => {
+const isWinningMove = (
+  color: SquareState,
+  moveCol: number,
+  s: GameState
+): boolean => {
   const moveRow = canAddToColumn(moveCol, s);
   if (moveRow === false) {
     console.error("illegal move; column is full");
     return false;
   }
 
-  const color = s[moveCol][moveRow];
   let isWin = false;
   vectors.every(([xInc, yInc]) => {
     let len = 1;
