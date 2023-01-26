@@ -8,8 +8,6 @@ const boardDims = {
   y: 6,
 };
 
-const emptyCol = (): GameCol => new Array(boardDims.y).fill(SquareState.Empty);
-
 const newGameState = (): GameState => {
   return Array.from(
     { length: boardDims.x },
